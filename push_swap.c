@@ -6,12 +6,12 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:11:24 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/20 17:37:37 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/21 16:29:14 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
+#include <stdio.h>
 
 int	check_repeat(long *av, int n)
 {
@@ -46,14 +46,12 @@ void	free_split(char **arr)
 	free(arr);
 }
 
-int	check_realnumber(char *str)
+int	check(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (ft_isdigit(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+' )
 	{
 		i++;
 		if (!str[i])
@@ -66,6 +64,8 @@ int	check_realnumber(char *str)
 		if (!str[i])
 			return (1);
 	}
+	while (ft_isdigit(str[i]))
+		i++;
 	if (!str[i])
 		return (1);
 	else
@@ -75,27 +75,35 @@ int	check_realnumber(char *str)
 	}
 }
 
+int	ft_max(long num)
+{
+	if (num > INT_MAX || num < INT_MIN)
+	{
+		write(1, "error\n", 6);
+		return (0);
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	char	**fake_num;
 	int		i;
 	int		x;
-	long	*real_num;
 	int		n;
+	long	*real_num;
 
 	i = 0;
-	x = 0;
 	n = 0;
 	while (++i < ac)
 	{
-		x = 0;
+		x = -1;
 		fake_num = ft_split(av[i], ' ');
-		while (fake_num[x])
+		while (fake_num[++x])
 		{
-			if (!check_realnumber(fake_num[x]))
+			if (!check(fake_num[x]) || !ft_max(ft_atoi(fake_num[x])))
 				return (0);
 			real_num[n++] = ft_atoi(fake_num[x]);
-			x++;
 		}
 		free_split(fake_num);
 	}
