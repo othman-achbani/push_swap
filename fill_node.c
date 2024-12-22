@@ -6,13 +6,13 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:25:36 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/22 11:02:56 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:14:06 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stacknew(int content,int i)
+static t_stack	*ft_stacknew(int content)
 {
 	t_stack	*head;
 
@@ -20,16 +20,16 @@ t_stack	*ft_stacknew(int content,int i)
 	if (!head)
 		return (NULL);
 	head -> num = content;
-	head -> pos = i;
 	head -> next = NULL;
 	return (head);
 }
-void	ft_stackadd_back(t_stack **lst, int num,int i)
+
+void	ft_stackadd_back(t_stack **lst, int num)
 {
 	t_stack	*current;
 	t_stack	*new;
 
-	new = ft_stacknew(num, i);
+	new = ft_stacknew(num);
 	if (!lst || !new)
 		return ;
 	current = (*lst);
@@ -39,6 +39,22 @@ void	ft_stackadd_back(t_stack **lst, int num,int i)
 		return ;
 	}
 	while (current -> next)
+	{
 		current = current -> next;
+	
+	}
 	current -> next = new;
+}
+
+void	ft_stackadd_front(t_stack **lst, t_stack *new)
+{
+	if (!new)
+		return ;
+	if (!lst)
+	{
+		*lst = new;
+		return ;
+	}
+	new -> next = (*lst);
+	(*lst) = new;
 }

@@ -6,32 +6,12 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:11:24 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/21 19:53:39 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:50:52 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-int	check_repeat(long *av, int n)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < n)
-	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (av[i] == av[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
 void	free_split(char **arr)
 {
@@ -46,42 +26,38 @@ void	free_split(char **arr)
 	free(arr);
 }
 
-void	fill_the_stack(int *real_num,int size)
+int	add_to_stack(int ac , char **av,t_stack **a)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	char	**fake_num;
+	int 	i;
+	int		j;
 
-	int i;
-
-	i = -1;
-	while (++i < size)
-		ft_stackadd_back(&stack_a, real_num[i],i);
-	
+	i = 0;
+	j = 0;
+	fake_num = NULL;
+	while (++i < ac)
+	{
+		j = 0;
+		fake_num = ft_split(av[i],' ');
+		while (fake_num[j])
+		{
+			if (!check(fake_num[j]) || !ft_max(ft_atoi(fake_num[j])))
+				return (free_split(fake_num),0);
+			else
+				ft_stackadd_back(a,(int)ft_atoi(fake_num[j]));
+			j++;
+		}
+		free_split(fake_num);
+	}	
 }
 
 int	main(int ac, char **av)
 {
-	char	**fake_num;
-	int		i;
-	int		x;
-	int		n;
-	long	*real_num;
+	t_stack	*stack_a;
+	t_stack *stack_b;
 
-	i = 0;
-	n = 0;
-	while (++i < ac)
-	{
-		x = -1;
-		fake_num = ft_split(av[i], ' ');
-		while (fake_num[++x])
-		{
-			if (!check(fake_num[x]) || !ft_max(ft_atoi(fake_num[x])))
-				return (free_split(fake_num),0);
-			real_num[n++] = ft_atoi(fake_num[x]);
-		}
-		free_split(fake_num);
-	}
-	if (!check_repeat(real_num, n))
+	stack_a = NULL;
+	stack_b = NULL;
+	if (!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
 		write(2, "error\n", 6);
-	fill_the_stack(real_num,n);
 }
