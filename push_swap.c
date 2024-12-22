@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:11:24 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/21 16:29:14 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:53:39 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,43 +46,17 @@ void	free_split(char **arr)
 	free(arr);
 }
 
-int	check(char *str)
+void	fill_the_stack(int *real_num,int size)
 {
-	int	i;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	i = 0;
-	if (str[i] == '-' || str[i] == '+' )
-	{
-		i++;
-		if (!str[i])
-		{
-			write(1, "error\n", 6);
-			return (0);
-		}
-		while (ft_isdigit(str[i]))
-			i++;
-		if (!str[i])
-			return (1);
-	}
-	while (ft_isdigit(str[i]))
-		i++;
-	if (!str[i])
-		return (1);
-	else
-	{
-		write(1, "error\n", 6);
-		return (0);
-	}
-}
+	int i;
 
-int	ft_max(long num)
-{
-	if (num > INT_MAX || num < INT_MIN)
-	{
-		write(1, "error\n", 6);
-		return (0);
-	}
-	return (1);
+	i = -1;
+	while (++i < size)
+		ft_stackadd_back(&stack_a, real_num[i],i);
+	
 }
 
 int	main(int ac, char **av)
@@ -102,11 +76,12 @@ int	main(int ac, char **av)
 		while (fake_num[++x])
 		{
 			if (!check(fake_num[x]) || !ft_max(ft_atoi(fake_num[x])))
-				return (0);
+				return (free_split(fake_num),0);
 			real_num[n++] = ft_atoi(fake_num[x]);
 		}
 		free_split(fake_num);
 	}
 	if (!check_repeat(real_num, n))
-		write(1, "error\n", 6);
+		write(2, "error\n", 6);
+	fill_the_stack(real_num,n);
 }

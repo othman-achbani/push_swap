@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/21 09:52:06 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:47:25 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ typedef struct s_stack
 
 void	free_split(char **arr);
 int		check_repeat(long *av, int n);
-
+void	ft_stackadd_back(t_stack **lst, int num);
+int		ft_max(long num);
+int		check(char *str);
 #endif
