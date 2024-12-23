@@ -6,17 +6,16 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/22 19:11:35 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:26:37 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
 # include <limits.h>
 # include <stdint.h>
-#include<stdio.h>
+# include<stdio.h>
 typedef struct s_stack
 {
 	int				num;
