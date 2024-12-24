@@ -16,11 +16,11 @@ static t_stack	*ft_stacknew(int content)
 {
 	t_stack	*head;
 
-	head = (t_stack *)malloc (sizeof(t_stack));
+	head = (t_stack *)malloc(sizeof(t_stack));
 	if (!head)
 		return (NULL);
-	head -> num = content;
-	head -> next = NULL;
+	head->num = content;
+	head->next = NULL;
 	return (head);
 }
 
@@ -38,12 +38,11 @@ void	ft_stackadd_back(t_stack **lst, int num)
 		*lst = new;
 		return ;
 	}
-	while (current -> next)
+	while (current->next)
 	{
-		current = current -> next;
-	
+		current = current->next;
 	}
-	current -> next = new;
+	current->next = new;
 }
 
 void	ft_stackadd_front(t_stack **lst, t_stack *new)
@@ -55,6 +54,6 @@ void	ft_stackadd_front(t_stack **lst, t_stack *new)
 		*lst = new;
 		return ;
 	}
-	new -> next = (*lst);
+	new->next = (*lst);
 	(*lst) = new;
 }

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:47:12 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/22 13:45:13 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:53:22 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+' )
+	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
 		if (!str[i])
@@ -39,12 +39,13 @@ int	check(char *str)
 	if (!str[i])
 		return (1);
 	else
-		return (0);	
+		return (0);
 }
-int check_the_array(int *arr , int n)
+
+int	check_the_array(int *arr, int n)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -61,20 +62,21 @@ int check_the_array(int *arr , int n)
 	}
 	return (1);
 }
+
 int	check_repeat(t_stack *a)
 {
-	int		i;
-	int		j;
-	int		*arr;
+	int	i;
+	int	j;
+	int	*arr;
 
 	i = 0;
 	j = 0;
 	while (a)
 	{
-		arr[i] = a -> num;
-		a = a -> next;
+		arr[i] = a->num;
+		a = a->next;
 		i++;
 	}
-	if (!check_the_array(arr ,i))
+	if (!check_the_array(arr, i))
 		return (0);
 }

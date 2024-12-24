@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operations.c                                  :+:      :+:    :+:   */
+/*   push_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 19:25:38 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 10:53:13 by oachbani         ###   ########.fr       */
+/*   Created: 2024/12/23 12:52:57 by oachbani          #+#    #+#             */
+/*   Updated: 2024/12/24 10:52:02 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **a)
+void	push(t_stack **dest, t_stack **src)
 {
-	t_stack	*first;
-	t_stack	*second;
+	t_stack	*tmp;
 
-	if (!*a || !(*a)->next)
+	if (!*src)
 		return ;
-	first = (*a);
-	second = (*a)->next;
-	first->next = second->next;
-	second->next = first;
-	(*a) = second;
+	tmp = (*src);
+	(*src) = (*src)->next;
+	tmp->next = (*dest);
+	(*dest) = tmp;
 }
 
-void	swap_a(t_stack **a)
+void	push_a(t_stack **a, t_stack **b)
 {
-	swap(a);
-	write(1, "sa\n", 3);
+	push(a, b);
+	write(1, "pa\n", 3);
 }
 
-void	swap_b(t_stack **a)
+void	push_b(t_stack **a, t_stack **b)
 {
-	swap(a);
-	write(1, "sb\n", 3);
-}
-
-void	swap_ab(t_stack **a, t_stack **b)
-{
-	swap(a);
-	write(1, "ss\n", 3);
+	push(b, a);
+	write(1, "pb\n", 3);
 }

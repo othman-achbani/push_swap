@@ -1,45 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_operations.c                                  :+:      :+:    :+:   */
+/*   rrotate_operation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 19:25:38 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 10:53:13 by oachbani         ###   ########.fr       */
+/*   Created: 2024/12/24 11:15:09 by oachbani          #+#    #+#             */
+/*   Updated: 2024/12/24 11:43:49 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **a)
+void	rrotate(t_stack **a)
 {
 	t_stack	*first;
-	t_stack	*second;
+	t_stack	*last;
 
-	if (!*a || !(*a)->next)
+	if (!(*a) || !(*a)->next)
 		return ;
 	first = (*a);
-	second = (*a)->next;
-	first->next = second->next;
-	second->next = first;
-	(*a) = second;
+	last = (*a);
+	while (last->next)
+		last = last->next;
+	last->next = first;
+	(*a) = first->next;
+	first->next = NULL;
 }
 
-void	swap_a(t_stack **a)
+void	rrotate_a(t_stack **a)
 {
-	swap(a);
-	write(1, "sa\n", 3);
+	rrotate(a);
+	write(1, "rra\n", 4);
 }
 
-void	swap_b(t_stack **a)
+void	rrotate_b(t_stack **b)
 {
-	swap(a);
-	write(1, "sb\n", 3);
+	rrotate(b);
+	write(1, "rrb\n", 4);
 }
 
-void	swap_ab(t_stack **a, t_stack **b)
+void	rrotate_ab(t_stack **a, t_stack **b)
 {
-	swap(a);
-	write(1, "ss\n", 3);
+	rrotate(a);
+	rrotate(b);
+	write(1, "rrr\n", 4);
 }
