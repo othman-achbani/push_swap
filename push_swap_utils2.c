@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:54:02 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/22 19:09:03 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:17:49 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	ft_len(char const *str, char c)
 {
 	int	i;
+
 
 	i = 0;
 	while (str[i] != c && str[i])

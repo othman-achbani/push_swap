@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 10:51:35 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:18:13 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,13 @@ void				swap_a(t_stack **a);
 void				*ft_calloc(size_t num, size_t size);
 void				swap_b(t_stack **a);
 void				swap_ab(t_stack **a, t_stack **b);
+void				push_a(t_stack **a, t_stack **b);
+void				push_b(t_stack **a, t_stack **b);
+void				rotate_a(t_stack **a);
+void				rotate_b(t_stack **b);
+void				rotate_ab(t_stack **a, t_stack **b);
+void				rrotate_a(t_stack **a);
+void				rrotate_b(t_stack **b);
+void				rrotate_ab(t_stack **a, t_stack **b);
+
 #endif
