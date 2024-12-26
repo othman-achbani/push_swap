@@ -16,7 +16,6 @@ static int	ft_len(char const *str, char c)
 {
 	int	i;
 
-
 	i = 0;
 	while (str[i] != c && str[i])
 		i++;

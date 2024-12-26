@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 19:25:38 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 15:17:34 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 12:02:33 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	swap_b(t_stack **a)
 void	swap_ab(t_stack **a, t_stack **b)
 {
 	swap(a);
+	swap(b);
 	write(1, "ss\n", 3);
 }

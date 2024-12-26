@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:47:12 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 15:17:23 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 12:01:46 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	check_repeat(t_stack *a)
 	int	j;
 	int	*arr;
 
+	arr = NULL;
 	i = 0;
 	j = 0;
 	while (a)
@@ -79,4 +80,5 @@ int	check_repeat(t_stack *a)
 	}
 	if (!check_the_array(arr, i))
 		return (0);
+	return (1);
 }

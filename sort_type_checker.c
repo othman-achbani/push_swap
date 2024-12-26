@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_operations.c                                  :+:      :+:    :+:   */
+/*   sort_type_checker.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 12:52:57 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/25 09:57:57 by oachbani         ###   ########.fr       */
+/*   Created: 2024/12/24 18:56:34 by oachbani          #+#    #+#             */
+/*   Updated: 2024/12/26 11:59:45 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **dest, t_stack **src)
+int	stack_size(t_stack *a)
 {
-	t_stack	*tmp;
+	int	i;
 
-	if (!*src)
-		return ;
-	tmp = (*src);
-	(*src) = (*src)->next;
-	tmp->next = (*dest);
-	(*dest) = tmp;
+	i = 0;
+	while (a)
+	{
+		a = a->next;
+		i++;
+	}
+	return (i);
 }
 
-void	push_a(t_stack **a, t_stack **b)
+void	sort_type_check(t_stack **a)
 {
-	push(a, b);
-	write(1, "pa\n", 3);
-}
+	int	size;
 
-void	push_b(t_stack **b, t_stack **a)
-{
-	push(b, a);
-	write(1, "pb\n", 3);
+	size = stack_size(*a);
+	if (size == 2)
+		swap_a(a);
+	else if (size == 3)
+		sort_three(a);
 }

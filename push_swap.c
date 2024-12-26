@@ -6,12 +6,11 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:11:24 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 15:17:15 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 12:00:11 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	free_split(char **arr)
 {
@@ -49,6 +48,7 @@ int	add_to_stack(int ac, char **av, t_stack **a)
 		}
 		free_split(fake_num);
 	}
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -59,5 +59,11 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
+	{
 		write(2, "error\n", 6);
+		exit(1);
+	}
+	if (is_sorted(stack_a))
+		return (0);
+	sort_type_check(&stack_a);
 }

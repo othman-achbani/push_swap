@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/24 15:18:13 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/25 22:53:09 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
 	int				num;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -44,5 +46,7 @@ void				rotate_ab(t_stack **a, t_stack **b);
 void				rrotate_a(t_stack **a);
 void				rrotate_b(t_stack **b);
 void				rrotate_ab(t_stack **a, t_stack **b);
-
+int					is_sorted(t_stack *a);
+void				sort_type_check(t_stack **a);
+void				sort_three(t_stack **stack);
 #endif
