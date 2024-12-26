@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:56:34 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 11:59:45 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:30:59 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	stack_size(t_stack *a)
 	return (i);
 }
 
-void	sort_type_check(t_stack **a)
+void	sort_type_check(t_stack **a, t_stack **b)
 {
 	int	size;
 
@@ -34,4 +34,8 @@ void	sort_type_check(t_stack **a)
 		swap_a(a);
 	else if (size == 3)
 		sort_three(a);
+	if (size == 4)
+		sort_four(a, b);
+	if (size == 5)
+		sort_five(a, b);
 }

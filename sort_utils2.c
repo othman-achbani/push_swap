@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_operations.c                                  :+:      :+:    :+:   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 12:52:57 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 15:05:28 by oachbani         ###   ########.fr       */
+/*   Created: 2024/12/26 13:52:31 by oachbani          #+#    #+#             */
+/*   Updated: 2024/12/26 17:30:10 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **dest, t_stack **src)
+int	find_small_index(t_stack *stack)
 {
-	t_stack	*tmp;
+	int	i;
+	int	small_index;
+	int	inum;
+	int	small_value;
 
-	if (!*src)
-		return ;
-	tmp = (*src);
-	(*src) = (*src)->next;
-	tmp->next = (*dest);
-	(*dest) = tmp;
-}
-
-void	push_a(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	write(1, "pa\n", 3);
-}
-
-void	push_b(t_stack **b, t_stack **a)
-{
-	push(b, a);
-	write(1, "pb\n", 3);
+	small_value = INT_MAX;
+	i = 0;
+	small_index = 0;
+	while (stack)
+	{
+		if (stack->num < small_value)
+		{
+			small_value = stack->num;
+			small_index = i;
+		}
+		i++;
+		stack = stack->next;
+	}
+	return (small_index);
 }

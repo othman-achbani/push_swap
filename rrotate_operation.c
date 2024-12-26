@@ -6,26 +6,28 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:15:09 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 11:58:13 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:30:51 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrotate(t_stack **a)
+static void	rrotate(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
+	t_stack	*tmp;
 
 	if (!(*a) || !(*a)->next)
 		return ;
-	first = (*a);
-	last = (*a);
-	while (last->next)
+	first = *a;
+	last = first;
+	while (last->next->next)
 		last = last->next;
-	last->next = first;
-	(*a) = first->next;
-	first->next = NULL;
+	tmp = last->next;
+	last->next = NULL;
+	tmp->next = first;
+	*a = tmp;
 }
 
 void	rrotate_a(t_stack **a)

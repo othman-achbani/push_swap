@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:11:24 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 12:00:11 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:31:36 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ int	main(int ac, char **av)
 	}
 	if (is_sorted(stack_a))
 		return (0);
-	sort_type_check(&stack_a);
+	sort_type_check(&stack_a, &stack_b);
 }

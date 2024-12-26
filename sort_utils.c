@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:50:25 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 11:59:20 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:31:22 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,51 @@ void	sort_three(t_stack **stack)
 		rrotate_a(stack);
 		swap_a(stack);
 	}
+}
+
+void	sort_four(t_stack **stack_a, t_stack **stack_b)
+{
+	int		small_index;
+
+	small_index = find_small_index(*stack_a);
+	if (small_index == 1)
+		rotate_a(stack_a);
+	else if (small_index == 2)
+	{
+		rotate_a(stack_a);
+		rotate_a(stack_a);
+	}
+	else if (small_index == 3)
+		rrotate_a(stack_a);
+	if (is_sorted(*stack_a))
+		exit(0);
+	push_b(stack_b, stack_a);
+	sort_three(stack_a);
+	push_a(stack_a, stack_b);
+}
+
+void	sort_five(t_stack **a, t_stack**b)
+{
+	int	small_index;
+
+	small_index = find_small_index(*a);
+	if (small_index == 1)
+		rotate_a(a);
+	else if (small_index == 2)
+	{
+		rotate_a(a);
+		rotate_a(a);
+	}
+	else if (small_index == 3)
+	{
+		rrotate_a(a);
+		rrotate_a(a);
+	}
+	else if (small_index == 4)
+		rrotate_a(a);
+	if (is_sorted(*a))
+		exit(0);
+	push_b(b, a);
+	sort_four(a, b);
+	push_a(a, b);
 }

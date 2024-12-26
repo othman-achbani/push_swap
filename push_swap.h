@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/25 22:53:09 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:24:56 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void				*ft_calloc(size_t num, size_t size);
 void				swap_b(t_stack **a);
 void				swap_ab(t_stack **a, t_stack **b);
 void				push_a(t_stack **a, t_stack **b);
-void				push_b(t_stack **a, t_stack **b);
+void				push_b(t_stack **b, t_stack **a);
 void				rotate_a(t_stack **a);
 void				rotate_b(t_stack **b);
 void				rotate_ab(t_stack **a, t_stack **b);
@@ -47,6 +47,10 @@ void				rrotate_a(t_stack **a);
 void				rrotate_b(t_stack **b);
 void				rrotate_ab(t_stack **a, t_stack **b);
 int					is_sorted(t_stack *a);
-void				sort_type_check(t_stack **a);
+void				sort_type_check(t_stack **a, t_stack **b);
 void				sort_three(t_stack **stack);
+int					stack_size(t_stack *a);
+int					find_small_index(t_stack *stack);
+void				sort_four(t_stack **stack_a, t_stack **stack_b);
+void				sort_five(t_stack **a, t_stack**b);
 #endif

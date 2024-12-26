@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:47:12 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 12:01:46 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 13:35:58 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,14 @@ int	check_the_array(int *arr, int n)
 int	check_repeat(t_stack *a)
 {
 	int	i;
-	int	j;
+	int	size;
 	int	*arr;
 
-	arr = NULL;
+	size = stack_size(a);
+	arr = malloc(size * sizeof(int));
+	if (!arr)
+		return (0);
 	i = 0;
-	j = 0;
 	while (a)
 	{
 		arr[i] = a->num;
@@ -80,5 +82,6 @@ int	check_repeat(t_stack *a)
 	}
 	if (!check_the_array(arr, i))
 		return (0);
+	free (arr);
 	return (1);
 }
