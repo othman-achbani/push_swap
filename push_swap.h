@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 17:24:56 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 22:42:40 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+int					*fill_the_array(t_stack *a);
 long				ft_atoi(const char *str);
 void				free_split(char **arr);
 void				ft_stackadd_back(t_stack **lst, int num);

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:56:34 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 17:30:59 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/26 21:39:30 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void	sort_type_check(t_stack **a, t_stack **b)
 		sort_four(a, b);
 	if (size == 5)
 		sort_five(a, b);
+	
 }
