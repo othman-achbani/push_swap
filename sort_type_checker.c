@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:56:34 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 21:39:30 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/27 10:31:00 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ int	stack_size(t_stack *a)
 	return (i);
 }
 
+int	get_chunks(t_stack *a)
+{
+	int	size;
+
+	size = stack_size(a);
+
+	if (size <= 140)
+		return(size / 4);
+	else
+		return(size / 12);
+}
 void	sort_type_check(t_stack **a, t_stack **b)
 {
 	int	size;
@@ -38,5 +49,7 @@ void	sort_type_check(t_stack **a, t_stack **b)
 		sort_four(a, b);
 	if (size == 5)
 		sort_five(a, b);
-	
+	else
+		big_sort(a,b);
+		
 }

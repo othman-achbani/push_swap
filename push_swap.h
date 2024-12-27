@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:10:21 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 22:42:40 by oachbani         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:50:46 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,7 @@ int					stack_size(t_stack *a);
 int					find_small_index(t_stack *stack);
 void				sort_four(t_stack **stack_a, t_stack **stack_b);
 void				sort_five(t_stack **a, t_stack**b);
+void				give_the_index(t_stack **a ,int size);
+int					get_chunks(t_stack *a);
+int					find_max_index(t_stack **b);
 #endif
