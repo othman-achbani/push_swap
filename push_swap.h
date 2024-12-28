@@ -56,5 +56,7 @@ void				sort_four(t_stack **stack_a, t_stack **stack_b);
 void				sort_five(t_stack **a, t_stack**b);
 void				give_the_index(t_stack **a ,int size);
 int					get_chunks(t_stack *a);
-int					find_max_index(t_stack **b);
+int					find_max_index(t_stack *b);
+void				big_sort(t_stack **a, t_stack **b);
+void				big_sort_final(t_stack **a,t_stack **b);
 #endif

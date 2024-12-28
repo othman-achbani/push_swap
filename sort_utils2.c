@@ -16,7 +16,6 @@ int	find_small_index(t_stack *stack)
 {
 	int	i;
 	int	small_index;
-	int	inum;
 	int	small_value;
 
 	small_value = INT_MAX;

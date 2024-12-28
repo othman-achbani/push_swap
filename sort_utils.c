@@ -68,7 +68,7 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b)
 	else if (small_index == 3)
 		rrotate_a(stack_a);
 	if (is_sorted(*stack_a))
-		exit(0);
+		return ;
 	push_b(stack_b, stack_a);
 	sort_three(stack_a);
 	push_a(stack_a, stack_b);

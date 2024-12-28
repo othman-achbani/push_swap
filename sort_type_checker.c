@@ -30,11 +30,10 @@ int	get_chunks(t_stack *a)
 	int	size;
 
 	size = stack_size(a);
-
 	if (size <= 140)
-		return(size / 4);
+		return(size / 11);
 	else
-		return(size / 12);
+		return(size / 10);
 }
 void	sort_type_check(t_stack **a, t_stack **b)
 {
@@ -45,11 +44,10 @@ void	sort_type_check(t_stack **a, t_stack **b)
 		swap_a(a);
 	else if (size == 3)
 		sort_three(a);
-	if (size == 4)
+	else if (size == 4)
 		sort_four(a, b);
-	if (size == 5)
+	else if (size == 5)
 		sort_five(a, b);
 	else
-		big_sort(a,b);
-		
+		big_sort(a, b);	
 }

@@ -81,24 +81,26 @@ void	give_the_index(t_stack **a ,int size)
 	free(arr);
 }
 
-int	find_max_index(t_stack **b)
+int	find_max_index(t_stack *b)
 {
 	int	max;
 	int	index;
 	int	max_index;
 
+	if (!b)
+		exit (0);
 	index = 0;
-	max = (*b)->num;
+	max = b->num;
 	max_index = 0;
-	while (*b)
+	while (b)
 	{
-		if (max < (*b)->num)
+		if (max < b->num)
 		{
-			max = (*b)->num;
+			max = b->num;
 			max_index = index;
 		}
 		index++;
-		(*b) = (*b)->next;
+		b = b->next;
 	}
 	return(max_index);
 }

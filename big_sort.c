@@ -15,13 +15,14 @@
 void	push_rotate(t_stack **a ,t_stack **b)
 {
 		push_b(b, a);
+		if ((*b)->next && (*b)->num < (*b)->next->num)
 		rotate_b(b);
 }
 
 void	push_check_swap(t_stack **a, t_stack **b)
 {
 		push_b(b, a);
-		if((*b)->num < (*b)->next->num)
+		if((*b)->next && (*b)->num < (*b)->next->num)
 			swap_b(b);
 }
 
@@ -56,8 +57,24 @@ void	big_sort(t_stack **a, t_stack **b)
 
 void	big_sort_final(t_stack **a,t_stack **b)
 {
-	if (is_sorted(*a))
-		exit(0);
-	
-		
+	int	size;
+	int	max;
+
+	while (*b)
+	{
+		size = stack_size(*b);
+		max = find_max_index(*b);
+		if ( max == 0)
+			push_a(a, b);
+		else if (find_max_index(*b) >= size / 2)
+		{
+			while(find_max_index(*b) != 0)
+				rrotate_a(b);
+		}
+		else if (find_max_index(*b) <= size / 2)
+		{
+			while (find_max_index(*b) != 0)
+				rotate_a(b);
+		}
+	}
 }
