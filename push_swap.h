@@ -26,7 +26,31 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+//bonus part
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+
+# endif
+
+void	rrotate_a_b(t_stack **a);
+void	rrotate_ab_b(t_stack **a, t_stack **b);
+void	rrotate_b_b(t_stack **b);
+void	swap_ab_b(t_stack **a, t_stack **b);
+void	swap_b_b(t_stack **a);
+void	swap_a_b(t_stack **a);
+void	rotate_a_b(t_stack **a);
+void	rotate_b_b(t_stack **b);
+void	rotate_ab_b(t_stack **a, t_stack **b);
+void	push_b(t_stack **dest, t_stack **src);
+void	push_a_b(t_stack **a, t_stack **b);
+void	push_b_b(t_stack **b, t_stack **a);
+char	*get_next_line(int fd);
+char	*ft_strchr(char *str, int c);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(char *s);
+
 int					*fill_the_array(t_stack *a);
+int					add_to_stack(int ac, char **av, t_stack **a);
 long				ft_atoi(const char *str);
 void				free_split(char **arr);
 void				ft_stackadd_back(t_stack **lst, int num);
@@ -54,9 +78,9 @@ int					stack_size(t_stack *a);
 int					find_small_index(t_stack *stack);
 void				sort_four(t_stack **stack_a, t_stack **stack_b);
 void				sort_five(t_stack **a, t_stack**b);
-void				give_the_index(t_stack **a ,int size);
+void				give_the_index(t_stack **a, int size);
 int					get_chunks(t_stack *a);
 int					find_max_index(t_stack *b);
 void				big_sort(t_stack **a, t_stack **b);
-void				big_sort_final(t_stack **a,t_stack **b);
+void				big_sort_final(t_stack **a, t_stack **b);
 #endif

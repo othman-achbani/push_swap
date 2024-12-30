@@ -70,5 +70,5 @@ int	main(int ac, char **av)
 	// {
 	// 	printf("%d |" ,stack_a->num );
 	// 	stack_a = stack_a->next;
-	// }	
+	// }
 }

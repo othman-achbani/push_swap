@@ -35,6 +35,7 @@ int	get_chunks(t_stack *a)
 	else
 		return(size / 10);
 }
+
 void	sort_type_check(t_stack **a, t_stack **b)
 {
 	int	size;
