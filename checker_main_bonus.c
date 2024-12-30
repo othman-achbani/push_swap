@@ -31,8 +31,7 @@ int main (int ac , char **av)
 	}
 	ft_checker(&stack_a, &stack_b);
 	if (is_sorted(stack_a))
-	{
 		write(1, "OK\n", 3);
-		exit(0);
-	}
+	else if (!is_sorted(stack_a))
+		write(1, "KO\n", 3);
 }

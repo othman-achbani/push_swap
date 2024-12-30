@@ -26,29 +26,29 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-//bonus part
+           /*       BONUS PART        */
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 
 # endif
 
-void	rrotate_a_b(t_stack **a);
-void	rrotate_ab_b(t_stack **a, t_stack **b);
-void	rrotate_b_b(t_stack **b);
-void	swap_ab_b(t_stack **a, t_stack **b);
-void	swap_b_b(t_stack **a);
-void	swap_a_b(t_stack **a);
-void	rotate_a_b(t_stack **a);
-void	rotate_b_b(t_stack **b);
-void	rotate_ab_b(t_stack **a, t_stack **b);
-void	push_b(t_stack **dest, t_stack **src);
-void	push_a_b(t_stack **a, t_stack **b);
-void	push_b_b(t_stack **b, t_stack **a);
-char	*get_next_line(int fd);
-char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *s);
-void    ft_checker(t_stack **a, t_stack **b);
+void				rrotate_a_b(t_stack **a);
+void				rrotate_ab_b(t_stack **a, t_stack **b);
+void				rrotate_b_b(t_stack **b);
+void				swap_ab_b(t_stack **a, t_stack **b);
+void				swap_b_b(t_stack **a);
+void				swap_a_b(t_stack **a);
+void				rotate_a_b(t_stack **a);
+void				rotate_b_b(t_stack **b);
+void				rotate_ab_b(t_stack **a, t_stack **b);
+void				push_b(t_stack **dest, t_stack **src);
+void				push_a_b(t_stack **a, t_stack **b);
+void				push_b_b(t_stack **b, t_stack **a);
+char				*get_next_line(int fd);
+char				*ft_strchr(char *str, int c);
+char				*ft_strjoin(char *s1, char *s2);
+size_t				ft_strlen(char *s);
+void    			ft_checker(t_stack **a, t_stack **b);
 
 int					*fill_the_array(t_stack *a);
 int					add_to_stack(int ac, char **av, t_stack **a);

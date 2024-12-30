@@ -26,7 +26,7 @@ void    checking(char *line, t_stack **a, t_stack **b)
 {
     if (ft_strcmp(line, "pa\n") == 0)
         push_a_b(a, b);
-    else if (ft_strcmp(line , "pb\n") == 0)
+    else if (ft_strcmp(line, "pb\n") == 0)
         push_b_b(b, a);
     else if (ft_strcmp(line, "rra\n") == 0)
         rrotate_a_b(a);
@@ -35,7 +35,10 @@ void    checking(char *line, t_stack **a, t_stack **b)
     else if (ft_strcmp(line, "rrr\n") == 0)
         rrotate_ab_b(a, b);
     else
+    {
         write (2, "Error\n", 7);
+        exit (1);
+    }
 }
 
 void    ft_checker(t_stack **a, t_stack **b)
