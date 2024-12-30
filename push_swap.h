@@ -48,6 +48,7 @@ char	*get_next_line(int fd);
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *s);
+void    ft_checker(t_stack **a, t_stack **b);
 
 int					*fill_the_array(t_stack *a);
 int					add_to_stack(int ac, char **av, t_stack **a);

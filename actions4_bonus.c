@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	rrotate_b(t_stack **a)
+void	rrotate_b(t_stack **a)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -37,7 +37,7 @@ void	rrotate_a_b(t_stack **a)
 
 void	rrotate_b_b(t_stack **b)
 {
-	rrotate(b);
+	rrotate_b(b);
 }
 
 void	rrotate_ab_b(t_stack **a, t_stack **b)
