@@ -18,9 +18,25 @@ int	is_sorted(t_stack *a)
 		return (1);
 	while (a->next)
 	{
-		if (a->num > a->next->num)
-			return (0);
+		if (a->next)
+		{
+			if (a->num > a->next->num)
+				return (0);
+		}
 		a = a->next;
+	}
+	return (1);
+}
+
+int	null_check(int ac, char **av)
+{
+	int	i;
+
+	i = 0;
+	while (++i < ac)
+	{
+		if (av[i][0] == '\0')
+			return (0);
 	}
 	return (1);
 }

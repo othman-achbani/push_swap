@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	push_b(t_stack **dest, t_stack **src)
+void	push(t_stack **dest, t_stack **src)
 {
 	t_stack	*tmp;
 
@@ -24,12 +24,25 @@ void	push_b(t_stack **dest, t_stack **src)
 	(*dest) = tmp;
 }
 
-void	push_a_b(t_stack **a, t_stack **b)
+void	push_a(t_stack **a, t_stack **b)
 {
-	push_b(a, b);
+	push(a, b);
 }
 
-void	push_b_b(t_stack **b, t_stack **a)
+void	push_b(t_stack **b, t_stack **a)
 {
-	push_b(b, a);
+	push(b, a);
+}
+
+int	null_check(int ac, char **av)
+{
+	int	i;
+
+	i = 0;
+	while (++i < ac)
+	{
+		if (av[i][0] == '\0')
+			return (0);
+	}
+	return (1);
 }

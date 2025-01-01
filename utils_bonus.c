@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	ft_max(long num)
 {
@@ -41,6 +41,7 @@ int	check(char *str)
 	else
 		return (0);
 }
+
 static t_stack	*ft_stacknew(int content)
 {
 	t_stack	*head;
@@ -80,11 +81,10 @@ int	is_sorted(t_stack *a)
 		return (1);
 	while (a->next)
 	{
-		if (a->num > a->next->num)
-        {
-        	return (0);
-        }
-        a = a->next;
+		if (a->next)
+			if (a->num > a->next->num)
+				return (0);
+		a = a->next;
 	}
 	return (1);
 }

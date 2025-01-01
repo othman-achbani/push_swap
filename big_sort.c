@@ -10,29 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include "push_swap.h"
 
-void	push_rotate(t_stack **a ,t_stack **b)
+void	ft_increment(int *start, int *end, int size)
 {
-		push_b(b, a);
-		if ((*b)->next && (*b)->num < (*b)->next->num)
+	if (*start < *end)
+		(*start)++;
+	if (size - 1 > *end)
+		(*end)++;
+}
+
+void	push_rotate(t_stack **a, t_stack **b)
+{
+	push_b(b, a);
+	if (stack_size(*b) > 1)
 		rotate_b(b);
 }
 
 void	push_check_swap(t_stack **a, t_stack **b)
 {
-		push_b(b, a);
-		if((*b)->next && (*b)->num < (*b)->next->num)
-			swap_b(b);
+	push_b(b, a);
+	if (stack_size(*b) > 1 && (*b)->next->num > (*b)->num)
+		swap_b(b);
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+void	big_sort(t_stack **a, t_stack **b, int *end)
 {
-	int *arr;
-	int start;
-	int	end;
+	int	*arr;
+	int	start;
+	int	size;
 
-	end = get_chunks(*a);
+	size = stack_size(*a);
 	arr = fill_the_array(*a);
 	start = 0;
 	while (*a)
@@ -40,22 +48,20 @@ void	big_sort(t_stack **a, t_stack **b)
 		if ((*a)->num <= arr[start])
 		{
 			push_rotate(a, b);
-			start++;
-			end++;
+			ft_increment(&start, end, size);
 		}
-		else if((*a)->num <= arr[end])
+		else if ((*a)->num <= arr[*end])
 		{
 			push_check_swap(a, b);
-			start++;
-			end++;
+			ft_increment(&start, end, size);
 		}
 		else
-		rotate_a(a);
+			rotate_a(a);
 	}
 	big_sort_final(a, b);
 }
 
-void	big_sort_final(t_stack **a,t_stack **b)
+void	big_sort_final(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	max;
@@ -64,17 +70,17 @@ void	big_sort_final(t_stack **a,t_stack **b)
 	{
 		size = stack_size(*b);
 		max = find_max_index(*b);
-		if ( max == 0)
+		if (max == 0)
 			push_a(a, b);
-		else if (find_max_index(*b) >= size / 2)
-		{
-			while(find_max_index(*b) != 0)
-				rrotate_a(b);
-		}
-		else if (find_max_index(*b) <= size / 2)
+		else if (max <= size / 2)
 		{
 			while (find_max_index(*b) != 0)
-				rotate_a(b);
+				rotate_b(b);
+		}
+		else
+		{
+			while (find_max_index(*b) != 0)
+				rrotate_b(b);
 		}
 	}
 }

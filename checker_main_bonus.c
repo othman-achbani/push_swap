@@ -10,28 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int main (int ac , char **av)
+void	free_list(t_stack *head)
 {
-    t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+}
+
+int	main(int ac, char **av)
+{
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	char		*line;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+	if (!null_check (ac, av) || \
+	!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
+		return (free_list(stack_a), write(2, "Error\n", 6), 1);
 	if (is_sorted(stack_a))
+		return (write(1, "OK\n", 3), 0);
+	line = get_next_line(0);
+	while (line)
 	{
-		write(1, "OK\n", 3);
-		exit(0);
+		if (!checking(line, &stack_a, &stack_b))
+			return (free_list(stack_a), free_list(stack_b) \
+				, write(2, "Error\n", 6), 1);
+		line = get_next_line(0);
 	}
-	ft_checker(&stack_a, &stack_b);
-	if (is_sorted(stack_a))
+	if (is_sorted(stack_a) && !stack_b)
 		write(1, "OK\n", 3);
-	else if (!is_sorted(stack_a))
+	else
 		write(1, "KO\n", 3);
+	free_list(stack_a);
+	free_list(stack_b);
 }

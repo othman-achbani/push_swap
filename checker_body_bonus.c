@@ -10,56 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while ( s1[i] && s2 [i] && s1[i] == s2[i])
-        i++;
-    return (s1[i] - s2[i]);
+	i = 0;
+	while (s1[i] && s2 [i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
-void    checking(char *line, t_stack **a, t_stack **b)
+int	checking(char *line, t_stack **a, t_stack **b)
 {
-    if (ft_strcmp(line, "pa\n") == 0)
-        push_a_b(a, b);
-    else if (ft_strcmp(line, "pb\n") == 0)
-        push_b_b(b, a);
-    else if (ft_strcmp(line, "rra\n") == 0)
-        rrotate_a_b(a);
-    else if (ft_strcmp(line, "rrb\n") == 0)
-        rrotate_b_b(b);
-    else if (ft_strcmp(line, "rrr\n") == 0)
-        rrotate_ab_b(a, b);
-    else
-    {
-        write (2, "Error\n", 7);
-        exit (1);
-    }
-}
-
-void    ft_checker(t_stack **a, t_stack **b)
-{
-    char *line;
-
-    line = get_next_line(0);
-    while (line)
-    {
-        if (ft_strcmp(line, "ra\n") == 0)
-            rotate_a_b(a);
-        else if (ft_strcmp(line, "rb\n") == 0)
-            rotate_b_b(a);
-        else if (ft_strcmp(line, "rr\n") == 0)
-            rotate_ab_b(a, b);
-        else if (ft_strcmp(line, "sa\n") == 0)
-            swap_a_b(a);
-        else if (ft_strcmp(line, "sb\n") == 0)
-            swap_b_b(b);
-        else
-            checking(line , a, b);
-        line = get_next_line(0);
-    }
+	if (ft_strcmp("ra\n", line) == 0)
+		rotate_a(a);
+	else if (ft_strcmp("rb\n", line) == 0)
+		rotate_b(b);
+	else if (ft_strcmp("rr\n", line) == 0)
+		rotate_ab(a, b);
+	else if (ft_strcmp("sa\n", line) == 0)
+		swap_a(a);
+	else if (ft_strcmp("sb\n", line) == 0)
+		swap_b(b);
+	else if (ft_strcmp("pa\n", line) == 0)
+		push_a(a, b);
+	else if (ft_strcmp("pb\n", line) == 0)
+		push_b(b, a);
+	else if (ft_strcmp("rra\n", line) == 0)
+		rrotate_a(a);
+	else if (ft_strcmp("rrb\n", line) == 0)
+		rrotate_b(b);
+	else if (ft_strcmp("rrr\n", line) == 0)
+		rrotate_ab(a, b);
+	else
+		return (0);
+	return (1);
 }

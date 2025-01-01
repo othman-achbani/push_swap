@@ -51,6 +51,18 @@ int	add_to_stack(int ac, char **av, t_stack **a)
 	return (1);
 }
 
+void	free_list(t_stack *head)
+{
+	t_stack	*tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -58,7 +70,8 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
+	if (!null_check(ac, av) || \
+	!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
 	{
 		write(2, "Error\n", 6);
 		exit(1);
@@ -66,9 +79,6 @@ int	main(int ac, char **av)
 	if (is_sorted(stack_a))
 		return (0);
 	sort_type_check(&stack_a, &stack_b);
-	// while (stack_a)
-	// {
-	// 	printf("%d |" ,stack_a->num );
-	// 	stack_a = stack_a->next;
-	// }
+	free_list (stack_a);
+	free_list (stack_b);
 }

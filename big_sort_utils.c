@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	*sort_array(int *arr , int size)
+int	*sort_array(int *arr, int size)
 {
 	int	tmp;
 	int	i;
@@ -51,34 +51,11 @@ int	*fill_the_array(t_stack *a)
 	while (a)
 	{
 		arr[i] = a->num;
-		a= a->next;
+		a = a->next;
 		i++;
 	}
 	arr = sort_array(arr, size);
-	return(arr);
-}
-
-void	give_the_index(t_stack **a ,int size)
-{
-	int	i;
-	int *arr;
-
-	arr = fill_the_array(*a);
-	while (*a)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if ((*a)->num == arr[i])
-			{
-				(*a)->index = i;
-				break ;
-			}
-			i++;
-		}
-		(*a) = (*a)->next;
-	}
-	free(arr);
+	return (arr);
 }
 
 int	find_max_index(t_stack *b)
@@ -102,5 +79,5 @@ int	find_max_index(t_stack *b)
 		index++;
 		b = b->next;
 	}
-	return(max_index);
+	return (max_index);
 }
