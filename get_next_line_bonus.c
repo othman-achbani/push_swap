@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:26:12 by oachbani          #+#    #+#             */
-/*   Updated: 2024/11/24 11:51:15 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/02 17:43:28 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	line = ft_remaining(line);
+	free(line);
+	line = NULL;
 	return (save);
 }

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 14:22:24 by oachbani          #+#    #+#             */
-/*   Updated: 2025/01/02 14:17:30 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/02 17:43:21 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ int	main(int ac, char **av)
 	while (line)
 	{
 		if (!checking(line, &stack_a, &stack_b))
-			return (free_list(stack_a), free_list(stack_b) \
-				, write(2, "Error\n", 6), 1);
+			return (free_list(stack_a), \
+			free_list(stack_b), free(line), write(2, "Error\n", 6), 1);
+		free(line);
 		line = get_next_line(0);
 	}
 	if (is_sorted(stack_a) && !stack_b)
 		return (free_list(stack_a), write(1, "OK\n", 3), 0);
 	else
 		write(1, "KO\n", 3);
-	free_list(stack_a);
-	free_list(stack_b);
+	return (free_list(stack_a), free_list (stack_b), 0);
 }

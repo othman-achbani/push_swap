@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:47:12 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 21:40:19 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:48:14 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	check_repeat(t_stack *a)
 		i++;
 	}
 	if (!check_the_array(arr, i))
-		return (0);
+		return (free (arr), 0);
 	free (arr);
 	return (1);
 }

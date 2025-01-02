@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-30 15:08:16 by oachbani          #+#    #+#             */
-/*   Updated: 2024-12-30 15:08:16 by oachbani         ###   ########.fr       */
+/*   Created: 2024/12/30 15:08:16 by oachbani          #+#    #+#             */
+/*   Updated: 2025/01/02 14:56:10 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_repeat(t_stack *a)
 		i++;
 	}
 	if (!check_the_array(arr, i))
-		return (0);
+		return (free (arr), 0);
 	free (arr);
 	return (1);
 }

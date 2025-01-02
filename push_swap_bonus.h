@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-01 18:29:08 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-01 18:29:08 by oachbani         ###   ########.fr       */
+/*   Created: 2025/01/01 18:29:08 by oachbani          #+#    #+#             */
+/*   Updated: 2025/01/02 16:45:19 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 }					t_stack;
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 1
 
 # endif
 
