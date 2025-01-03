@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 10:30:00 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/27 12:09:33 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:55:57 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	big_sort(t_stack **a, t_stack **b, int *end)
 		else
 			rotate_a(a);
 	}
+	free(arr);
 	big_sort_final(a, b);
 }
 

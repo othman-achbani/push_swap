@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 17:50:25 by oachbani          #+#    #+#             */
-/*   Updated: 2024/12/26 17:31:22 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:49:27 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	null_check(int ac, char **av)
 {
 	int	i;
 
+	if (ac == 1)
+		exit (0);
 	i = 0;
 	while (++i < ac)
 	{

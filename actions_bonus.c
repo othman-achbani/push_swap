@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: othman <othman@student.42.fr>              #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-12-30 12:03:27 by othman            #+#    #+#             */
-/*   Updated: 2024-12-30 12:03:27 by othman           ###   ########.fr       */
+/*   Created: 2024/12/30 12:03:27 by othman            #+#    #+#             */
+/*   Updated: 2025/01/03 14:47:50 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	null_check(int ac, char **av)
 {
 	int	i;
 
+	if (ac == 1)
+		exit(0);
 	i = 0;
 	while (++i < ac)
 	{

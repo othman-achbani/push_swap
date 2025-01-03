@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 14:22:24 by oachbani          #+#    #+#             */
-/*   Updated: 2025/01/02 17:43:21 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/01/03 15:13:59 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int	main(int ac, char **av)
 	if (!null_check (ac, av) || !check_spaces(ac, av) || \
 	!add_to_stack(ac, av, &stack_a) || !check_repeat(stack_a))
 		return (free_list(stack_a), write(2, "Error\n", 6), 1);
-	if (is_sorted(stack_a))
-		return (free_list (stack_a), write(1, "OK\n", 3), 0);
 	line = get_next_line(0);
 	while (line)
 	{
